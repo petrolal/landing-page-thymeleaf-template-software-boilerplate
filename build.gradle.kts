@@ -162,7 +162,7 @@ val dockerBuild =
             "docker",
             "build",
             "-t",
-            "landing-page-thymeleaf-template-first:latest",
+            "landing-page-thymeleaf-template-software-boilerplate:latest",
             ".",
         )
     }
@@ -180,8 +180,8 @@ val dockerRun =
             "-p",
             "8080:8080",
             "--name",
-            "landing-page-thymeleaf-template-first",
-            "landing-page-thymeleaf-template-first:latest",
+            "landing-page-thymeleaf-template-software-boilerplate",
+            "landing-page-thymeleaf-template-software-boilerplate:latest",
         )
     }
 

@@ -1,4 +1,4 @@
-package com.petrolal.templates.landingpagefirst.controller
+package com.petrolal.templates.landingpagesoftwareboilerplate.controller
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model

@@ -8,7 +8,7 @@
       "script-ref": "init.kt",
       "description": "Scaffold a new Landing Page Thymeleaf project with Spring Boot and Kotlin"
     },
-    "landing-page-thymeleaf-template-first": {
+    "landing-page-thymeleaf-template-software-boilerplate": {
       "script-ref": "init.kt",
       "description": "Scaffold a new Landing Page Thymeleaf project with Spring Boot and Kotlin"
     }

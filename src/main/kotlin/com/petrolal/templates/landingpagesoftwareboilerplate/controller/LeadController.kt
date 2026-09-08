@@ -1,9 +1,9 @@
-package com.petrolal.templates.landingpagefirst.controller
+package com.petrolal.templates.landingpagesoftwareboilerplate.controller
 
-import com.petrolal.templates.landingpagefirst.dto.ContactRequest
-import com.petrolal.templates.landingpagefirst.dto.NewsletterRequest
-import com.petrolal.templates.landingpagefirst.service.LeadResult
-import com.petrolal.templates.landingpagefirst.service.LeadService
+import com.petrolal.templates.landingpagesoftwareboilerplate.dto.ContactRequest
+import com.petrolal.templates.landingpagesoftwareboilerplate.dto.NewsletterRequest
+import com.petrolal.templates.landingpagesoftwareboilerplate.service.LeadResult
+import com.petrolal.templates.landingpagesoftwareboilerplate.service.LeadService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.ModelAttribute

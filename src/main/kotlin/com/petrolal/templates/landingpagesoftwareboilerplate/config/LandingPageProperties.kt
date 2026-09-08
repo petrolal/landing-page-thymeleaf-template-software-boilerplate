@@ -1,4 +1,4 @@
-package com.petrolal.templates.landingpagefirst.config
+package com.petrolal.templates.landingpagesoftwareboilerplate.config
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 

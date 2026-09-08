@@ -1,7 +1,7 @@
-package com.petrolal.templates.landingpagefirst.service
+package com.petrolal.templates.landingpagesoftwareboilerplate.service
 
-import com.petrolal.templates.landingpagefirst.dto.ContactRequest
-import com.petrolal.templates.landingpagefirst.dto.NewsletterRequest
+import com.petrolal.templates.landingpagesoftwareboilerplate.dto.ContactRequest
+import com.petrolal.templates.landingpagesoftwareboilerplate.dto.NewsletterRequest
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import java.util.concurrent.CopyOnWriteArrayList

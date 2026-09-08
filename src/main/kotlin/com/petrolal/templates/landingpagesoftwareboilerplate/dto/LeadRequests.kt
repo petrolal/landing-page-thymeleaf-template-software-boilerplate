@@ -1,4 +1,4 @@
-package com.petrolal.templates.landingpagefirst.dto
+package com.petrolal.templates.landingpagesoftwareboilerplate.dto
 
 data class NewsletterRequest(
     var email: String = "",

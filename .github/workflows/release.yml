@@ -53,7 +53,7 @@ jobs:
       - name: Create Template Distribution Archives
         run: |
           TAG="${{ steps.vars.outputs.tag }}"
-          DIST_NAME="landing-page-thymeleaf-template-first-${TAG}"
+          DIST_NAME="landing-page-thymeleaf-template-software-boilerplate-${TAG}"
           
           # Create clean archive directory excluding VCS, build and IDE files
           mkdir -p "/tmp/${DIST_NAME}"
@@ -78,8 +78,8 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            landing-page-thymeleaf-template-first-*.tar.gz
-            landing-page-thymeleaf-template-first-*.zip
+            landing-page-thymeleaf-template-software-boilerplate-*.tar.gz
+            landing-page-thymeleaf-template-software-boilerplate-*.zip
           body: |
             ## Landing Page Thymeleaf Template - ${{ steps.vars.outputs.tag }}
 
@@ -89,15 +89,15 @@ jobs:
 
             ```bash
             # Initialize with default settings:
-            jbang init@petrolal/landing-page-thymeleaf-template-first my-project
+            jbang init@petrolal/landing-page-thymeleaf-template-software-boilerplate my-project
 
             # Or specify target package and directory:
-            jbang init@petrolal/landing-page-thymeleaf-template-first \
+            jbang init@petrolal/landing-page-thymeleaf-template-software-boilerplate \
               --package com.mycompany.myapp \
               my-project
 
             # Target this specific release:
-            jbang init@petrolal/landing-page-thymeleaf-template-first:${{ steps.vars.outputs.tag }} \
+            jbang init@petrolal/landing-page-thymeleaf-template-software-boilerplate:${{ steps.vars.outputs.tag }} \
               --package com.mycompany.myapp \
               my-project
             ```

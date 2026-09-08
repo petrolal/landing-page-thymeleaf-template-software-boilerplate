@@ -29,15 +29,15 @@ Run the generator directly referencing this GitHub repository:
 
 ```bash
 # Generate with defaults (directory: my-landing-page, package: com.petrolal.landingpage)
-jbang init@petrolal/landing-page-thymeleaf-template-first my-project
+jbang init@petrolal/landing-page-thymeleaf-template-software-boilerplate my-project
 
 # Or specify a custom target package
-jbang init@petrolal/landing-page-thymeleaf-template-first \
+jbang init@petrolal/landing-page-thymeleaf-template-software-boilerplate \
   --package com.mycompany.webapp \
   my-company-landing
 
 # Or run using the repository name directly
-jbang petrolal/landing-page-thymeleaf-template-first my-company-landing
+jbang petrolal/landing-page-thymeleaf-template-software-boilerplate my-company-landing
 ```
 
 ### Generator Options
@@ -47,7 +47,7 @@ jbang petrolal/landing-page-thymeleaf-template-first my-company-landing
 | `<projectName>` | *positional* | Target directory & project name | `my-landing-page` |
 | `--package` | `-p` | Base Kotlin package for the new project | `com.petrolal.landingpage` |
 | `--branch` | `-b` | Git branch or release tag to pull from | `main` |
-| `--repo` | `-r` | GitHub repository to fetch template from | `petrolal/landing-page-thymeleaf-template-first` |
+| `--repo` | `-r` | GitHub repository to fetch template from | `petrolal/landing-page-thymeleaf-template-software-boilerplate` |
 | `--archive` | `-a` | Local `.tar.gz` archive path (for offline/CI) | *none* |
 
 ### 3. Run Your New Project

@@ -25,8 +25,8 @@ class Init : Callable<Int> {
     @Option(names = ["-p", "--package"], description = ["Target base package"], defaultValue = "com.petrolal.landingpage")
     var targetPackage: String = "com.petrolal.landingpage"
 
-    @Option(names = ["-r", "--repo"], description = ["GitHub repository (owner/repo)"], defaultValue = "petrolal/landing-page-thymeleaf-template-first")
-    var repo: String = "petrolal/landing-page-thymeleaf-template-first"
+    @Option(names = ["-r", "--repo"], description = ["GitHub repository (owner/repo)"], defaultValue = "petrolal/landing-page-thymeleaf-template-software-boilerplate")
+    var repo: String = "petrolal/landing-page-thymeleaf-template-software-boilerplate"
 
     @Option(names = ["-b", "--branch"], description = ["Git branch or tag to download from"], defaultValue = "main")
     var branch: String = "main"
@@ -131,7 +131,7 @@ class Init : Callable<Int> {
             val updated =
                 content
                     .replace(Regex("""group\s*=\s*"[^"]*""""), "group = \"$targetPackage\"")
-                    .replace("landing-page-thymeleaf-template-first", projectName)
+                    .replace("landing-page-thymeleaf-template-software-boilerplate", projectName)
             buildFile.writeText(updated)
         }
 
@@ -139,12 +139,12 @@ class Init : Callable<Int> {
         val appYaml = File(targetDir, "src/main/resources/application.yaml")
         if (appYaml.exists()) {
             val content = appYaml.readText()
-            val updated = content.replace("landing-page-thymeleaf-template-first", projectName)
+            val updated = content.replace("landing-page-thymeleaf-template-software-boilerplate", projectName)
             appYaml.writeText(updated)
         }
 
         // 7. Restructure Kotlin package directories
-        val defaultPackage = "com.petrolal.templates.landingpagefirst"
+        val defaultPackage = "com.petrolal.templates.landingpagesoftwareboilerplate"
         if (defaultPackage != targetPackage) {
             restructureSourceDirectories(targetDir, "src/main/kotlin", defaultPackage, targetPackage)
             restructureSourceDirectories(targetDir, "src/test/kotlin", defaultPackage, targetPackage)

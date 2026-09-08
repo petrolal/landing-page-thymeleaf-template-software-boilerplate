@@ -42,7 +42,7 @@ jobs:
         run: ./gradlew bootJar
 
       - name: Verify Docker build
-        run: docker build -t landing-page-thymeleaf-template-first:test .
+        run: docker build -t landing-page-thymeleaf-template-software-boilerplate:test .
 
   test-jbang-template:
     name: Test JBang Template Scaffolding

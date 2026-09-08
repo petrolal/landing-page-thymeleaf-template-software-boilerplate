@@ -1,6 +1,7 @@
 spring:
   application:
-    name: landing-page-thymeleaf-template-first
+    name: landing-page-thymeleaf-template-software-boilerplate
+
 
   # datasource:
   #   url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:landing_db}

@@ -1,4 +1,4 @@
-package com.petrolal.templates.landingpagefirst
+package com.petrolal.templates.landingpagesoftwareboilerplate
 
 import org.hamcrest.Matchers.containsString
 import org.junit.jupiter.api.Test
@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class LandingPageThymeleafTemplateFirstApplicationTests {
+class LandingPageThymeleafTemplateSoftwareBoilerplateApplicationTests {
     @Autowired
     private lateinit var mockMvc: MockMvc
 

@@ -1,6 +1,6 @@
-package com.petrolal.templates.landingpagefirst.controller
+package com.petrolal.templates.landingpagesoftwareboilerplate.controller
 
-import com.petrolal.templates.landingpagefirst.config.LandingPageProperties
+import com.petrolal.templates.landingpagesoftwareboilerplate.config.LandingPageProperties
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController

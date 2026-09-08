@@ -1,6 +1,6 @@
-package com.petrolal.templates.landingpagefirst.controller
+package com.petrolal.templates.landingpagesoftwareboilerplate.controller
 
-import com.petrolal.templates.landingpagefirst.config.LandingPageProperties
+import com.petrolal.templates.landingpagesoftwareboilerplate.config.LandingPageProperties
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ModelAttribute
 import java.time.Year
