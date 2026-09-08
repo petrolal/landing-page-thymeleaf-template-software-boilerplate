@@ -7,8 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping
 @Controller
 class HomeController {
     /**
-     * @Param
+     * Render the Index page with Thymeleaft template
      *
+     * @return String
      */
     @GetMapping
     fun index(model: Model): String {

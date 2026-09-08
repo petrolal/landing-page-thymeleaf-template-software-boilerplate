@@ -1,0 +1,16 @@
+{
+  "aliases": {
+    "init": {
+      "script-ref": "init.kt",
+      "description": "Scaffold a new Landing Page Thymeleaf project with Spring Boot and Kotlin"
+    },
+    "landing-page": {
+      "script-ref": "init.kt",
+      "description": "Scaffold a new Landing Page Thymeleaf project with Spring Boot and Kotlin"
+    },
+    "landing-page-thymeleaf-template-first": {
+      "script-ref": "init.kt",
+      "description": "Scaffold a new Landing Page Thymeleaf project with Spring Boot and Kotlin"
+    }
+  }
+}

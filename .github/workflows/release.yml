@@ -1,0 +1,110 @@
+name: Release Template
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release tag name (e.g. v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    name: Build and Publish Template Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determine Release Tag
+        id: vars
+        run: |
+          if [ -n "${{ github.event.inputs.tag_name }}" ]; then
+            echo "tag=${{ github.event.inputs.tag_name }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=${GITHUB_REF#refs/tags/}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Validate project build
+        run: ./gradlew check bootJar
+
+      - name: Set up JBang
+        uses: jbangdev/setup-jbang@main
+
+      - name: Verify JBang Catalog
+        run: jbang alias list --file jbang-catalog.json
+
+      - name: Create Template Distribution Archives
+        run: |
+          TAG="${{ steps.vars.outputs.tag }}"
+          DIST_NAME="landing-page-thymeleaf-template-first-${TAG}"
+          
+          # Create clean archive directory excluding VCS, build and IDE files
+          mkdir -p "/tmp/${DIST_NAME}"
+          rsync -av --progress . "/tmp/${DIST_NAME}" \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude '.gradle' \
+            --exclude 'build' \
+            --exclude '.kotlin' \
+            --exclude '.idea'
+
+          # Generate tar.gz and zip distributions
+          tar -czf "${DIST_NAME}.tar.gz" -C /tmp "${DIST_NAME}"
+          (cd /tmp && zip -r "${GITHUB_WORKSPACE}/${DIST_NAME}.zip" "${DIST_NAME}")
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.vars.outputs.tag }}
+          name: Release ${{ steps.vars.outputs.tag }}
+          draft: false
+          prerelease: false
+          files: |
+            landing-page-thymeleaf-template-first-*.tar.gz
+            landing-page-thymeleaf-template-first-*.zip
+          body: |
+            ## Landing Page Thymeleaf Template - ${{ steps.vars.outputs.tag }}
+
+            ### Quickstart with JBang
+
+            Scaffold a new project in seconds using **JBang**:
+
+            ```bash
+            # Initialize with default settings:
+            jbang init@petrolal/landing-page-thymeleaf-template-first my-project
+
+            # Or specify target package and directory:
+            jbang init@petrolal/landing-page-thymeleaf-template-first \
+              --package com.mycompany.myapp \
+              my-project
+
+            # Target this specific release:
+            jbang init@petrolal/landing-page-thymeleaf-template-first:${{ steps.vars.outputs.tag }} \
+              --package com.mycompany.myapp \
+              my-project
+            ```
+
+            ### Next steps after scaffolding:
+
+            ```bash
+            cd my-project
+            git init
+            ./gradlew bootRun
+            ```
