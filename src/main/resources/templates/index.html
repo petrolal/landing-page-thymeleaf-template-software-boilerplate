@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments/layout :: common-header(${title})}"></head>
+  <body class="bg-slate-900 text-white min-h-screen">
+    <!-- HTMX works automatically without importing the script again -->
+    <button hx-post="/subscribe" hx-swap="outerHTML">Sign Up</button>
+  </body>
+</html>

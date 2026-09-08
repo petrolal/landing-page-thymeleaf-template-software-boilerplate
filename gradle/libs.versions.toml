@@ -1,0 +1,57 @@
+[versions]
+kotlinVersion = "2.1.10"
+springdocVersion = "2.8.5"
+springbootVersion = "3.4.3"
+springDependencyManager = "1.1.7"
+ktlintPlugin = "14.2.0"
+htmxWebjar = "2.0.4"
+webjarsLocator = "0.52"
+palantirDocker = "0.36.0"
+postgresql = "42.7.5"
+
+[libraries]
+# Spring Boot Starter Libs
+spring-boot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+springdoc-openapi-starter-webmvc-ui = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdocVersion" }
+springframework-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools" }
+
+# Database
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+flyway-core = { module = "org.flywaydb:flyway-core" }
+flyway-database-postgresql = { module = "org.flywaydb:flyway-database-postgresql" }
+
+# Kotlin Libs
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
+kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit5" }
+
+# Lombok
+lombok = { module = "org.projectlombok:lombok" }
+
+# Tests
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+# Frontend
+htmx = { module = "org.webjars.npm:htmx.org", version.ref = "htmxWebjar" }
+webjars-locator = { module = "org.webjars:webjars-locator-core", version.ref = "webjarsLocator" }
+
+[bundles]
+spring-boot-starter = [
+  "spring-boot-starter-thymeleaf",
+  "spring-boot-starter-web",
+  "springdoc-openapi-starter-webmvc-ui",
+  "springframework-boot-devtools",
+]
+kotlin = ["kotlin-reflect", "jackson-module-kotlin"]
+test = ["spring-boot-starter-test", "kotlin-test-junit"]
+spring-data = ["spring-boot-starter-data-jpa", "postgresql"]
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlinVersion" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlinVersion" }
+spring-framework-boot = { id = "org.springframework.boot", version.ref = "springbootVersion" }
+spring-dependency-manager = { id = "io.spring.dependency-management", version.ref = "springDependencyManager" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlintPlugin" }
