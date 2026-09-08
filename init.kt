@@ -116,6 +116,7 @@ class Init : Callable<Int> {
         File(targetDir, "jbang-catalog.json").delete()
         File(targetDir, ".git").deleteRecursively()
         File(targetDir, ".github").deleteRecursively()
+        File(targetDir, ".bin").deleteRecursively()
 
         // 4. Update settings.gradle.kts
         val settingsFile = File(targetDir, "settings.gradle.kts")

@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <section th:fragment="features" id="features" class="py-20 sm:py-28 bg-white dark:bg-slate-900 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+        <h2 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3">
+          Architecture & Features
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Everything you need to ship high-converting web apps.
+        </h3>
+        <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
+          Skip weeks of boilerplate setup. A rock-solid stack engineered for performance, maintainability, and clean code.
+        </p>
+      </div>
+
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+
+        <!-- Bento Card 1 (Span 2) -->
+        <div class="md:col-span-2 rounded-3xl p-8 sm:p-10 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 hover:border-indigo-500/50 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-xl font-bold mb-6 shadow-md shadow-indigo-600/30">
+              ⚡
+            </div>
+            <h4 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3">
+              Zero-SPA JavaScript Fatigue with HTMX & Thymeleaf
+            </h4>
+            <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+              Build dynamic, single-page application experiences directly from your server. No client-side routers, state managers, or bloated bundle downloads. Pure HTML swaps over the wire.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700/80 flex flex-wrap gap-2 text-xs font-semibold">
+            <span class="px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300">hx-post</span>
+            <span class="px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300">hx-swap="outerHTML"</span>
+            <span class="px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300">Fast TTFB</span>
+          </div>
+        </div>
+
+        <!-- Bento Card 2 -->
+        <div class="rounded-3xl p-8 sm:p-10 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 hover:border-indigo-500/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-600 text-white flex items-center justify-center text-xl font-bold mb-6 shadow-md shadow-purple-600/30">
+              💎
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+              Idiomatic Kotlin 2.1
+            </h4>
+            <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+              Null-safe, expressive, and concise. Data classes, coroutines, and Kotlin DSL for Gradle builds make development a joy.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700/80 flex flex-wrap gap-2 text-xs font-semibold">
+            <span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300">Kotlin 2.1.10</span>
+            <span class="px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300">Ktlint formatted</span>
+          </div>
+        </div>
+
+        <!-- Bento Card 3 -->
+        <div class="rounded-3xl p-8 sm:p-10 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 hover:border-indigo-500/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sky-500 text-white flex items-center justify-center text-xl font-bold mb-6 shadow-md shadow-sky-500/30">
+              🎨
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3">
+              Tailwind CSS v4 (No Node.js)
+            </h4>
+            <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+              Integrated standalone CLI compiles CSS in under 30 milliseconds right through Gradle. No Node.js, npm, or node_modules directory required.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700/80 flex flex-wrap gap-2 text-xs font-semibold">
+            <span class="px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300">./gradlew buildTailwind</span>
+            <span class="px-3 py-1 rounded-full bg-sky-100 dark:bg-sky-900/50 text-sky-700 dark:text-sky-300">DarkMode Ready</span>
+          </div>
+        </div>
+
+        <!-- Bento Card 4 (Span 2) -->
+        <div class="md:col-span-2 rounded-3xl p-8 sm:p-10 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 hover:border-indigo-500/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-xl font-bold mb-6 shadow-md shadow-emerald-600/30">
+              🚀
+            </div>
+            <h4 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3">
+              One-Shot JBang Scaffolding & CI Pipeline
+            </h4>
+            <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+              Spin up new production projects in a single terminal line with custom package and project naming. Tested continuously with GitHub Actions workflows on pull requests and releases.
+            </p>
+          </div>
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700/80 flex flex-wrap gap-2 text-xs font-semibold">
+            <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300">jbang init@...</span>
+            <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300">GitHub Actions CI/CD</span>
+            <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300">Docker Packaging</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</html>

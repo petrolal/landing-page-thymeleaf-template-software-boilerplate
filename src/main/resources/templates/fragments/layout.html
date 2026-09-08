@@ -1,15 +1,42 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head th:fragment="common-header(title)">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title th:text="${title}">Base Title</title>
+  <head th:fragment="common-header(pageTitle)">
+    <th:block th:replace="~{fragments/seo :: seo-tags}"></th:block>
 
-    <!-- Stylesheets -->
+    <!-- Preconnect & Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Compiled Tailwind CSS -->
     <link rel="stylesheet" th:href="@{/css/style.css}" />
 
-    <!-- HTMX imported once here -->
+    <!-- HTMX Core -->
     <script th:src="@{/webjars/htmx.org/dist/htmx.min.js}"></script>
+
+    <!-- Anti-flash Dark Mode Init -->
+    <script>
+      (function() {
+        try {
+          const theme = localStorage.getItem('theme');
+          const isDark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (_) {}
+      })();
+    </script>
+
+    <!-- Optional Analytics Snippets -->
+    <th:block th:replace="~{fragments/analytics :: scripts}"></th:block>
+
+    <style>
+      body {
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+    </style>
   </head>
   <body></body>
 </html>

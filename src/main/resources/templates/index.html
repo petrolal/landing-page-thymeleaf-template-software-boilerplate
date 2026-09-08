@@ -1,8 +1,42 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head th:replace="~{fragments/layout :: common-header(${title})}"></head>
-  <body class="bg-slate-900 text-white min-h-screen">
-    <!-- HTMX works automatically without importing the script again -->
-    <button hx-post="/subscribe" hx-swap="outerHTML">Sign Up</button>
+  <head th:replace="~{fragments/layout :: common-header(${landing.site.title})}"></head>
+  <body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen transition-colors antialiased selection:bg-indigo-500 selection:text-white">
+    
+    <!-- 1. Navigation Bar -->
+    <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
+
+    <main>
+      <!-- 2. Hero Section -->
+      <th:block th:replace="~{fragments/hero :: hero}"></th:block>
+
+      <!-- 3. Tech Stack & Social Proof Logos -->
+      <th:block th:replace="~{fragments/logos :: logos}"></th:block>
+
+      <!-- 4. Features Bento Grid -->
+      <th:block th:replace="~{fragments/features :: features}"></th:block>
+
+      <!-- 5. Interactive Pricing Table -->
+      <th:block th:replace="~{fragments/pricing :: pricing}"></th:block>
+
+      <!-- 6. Customer Reviews & Testimonials -->
+      <th:block th:replace="~{fragments/testimonials :: testimonials}"></th:block>
+
+      <!-- 7. Accessible FAQ Accordion -->
+      <th:block th:replace="~{fragments/faq :: faq}"></th:block>
+
+      <!-- 8. Conversion Call-To-Action Banner -->
+      <th:block th:replace="~{fragments/cta :: cta}"></th:block>
+
+      <!-- 9. Full Contact & Inquiry Form -->
+      <th:block th:replace="~{fragments/contact :: contact}"></th:block>
+    </main>
+
+    <!-- 10. Comprehensive Footer -->
+    <th:block th:replace="~{fragments/footer :: footer}"></th:block>
+
+    <!-- 11. Cookie / GDPR Banner -->
+    <th:block th:replace="~{fragments/cookie-banner :: banner}"></th:block>
+
   </body>
 </html>

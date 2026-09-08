@@ -63,6 +63,7 @@ jobs:
             --exclude '.gradle' \
             --exclude 'build' \
             --exclude '.kotlin' \
+            --exclude '.bin' \
             --exclude '.idea'
 
           # Generate tar.gz and zip distributions

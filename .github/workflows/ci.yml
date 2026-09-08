@@ -75,7 +75,7 @@ jobs:
       - name: Test End-to-End Scaffolding with JBang
         run: |
           # 1. Package template archive simulating GitHub release tarball
-          tar --exclude='./.git' --exclude='./.gradle' --exclude='./build' --exclude='./.kotlin' \
+          tar --exclude='./.git' --exclude='./.gradle' --exclude='./build' --exclude='./.kotlin' --exclude='./.bin' \
               -czf /tmp/template.tar.gz -C . .
 
           # 2. Run JBang init generator

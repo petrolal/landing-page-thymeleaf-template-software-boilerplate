@@ -25,3 +25,30 @@ spring:
 
 server:
   port: ${PORT:8080}
+
+landing:
+  site:
+    name: "AuraLaunch"
+    title: "AuraLaunch - Modern Landing Page Template"
+    tagline: "Build, launch, and convert visitors at lightning speed."
+    description: "Production-ready Spring Boot 3 & Kotlin landing page template with Thymeleaf, HTMX, Tailwind CSS, and full CI/CD pipeline."
+    url: "https://example.com"
+    author: "Petrolal"
+    og-image: "/images/og-preview.png"
+  social:
+    twitter: "https://twitter.com"
+    github: "https://github.com/petrolal"
+    linkedin: "https://linkedin.com"
+    discord: "https://discord.com"
+  hero:
+    badge: "✨ Ready for Spring Boot 3 & Kotlin 2.1"
+    cta-text: "Start Building"
+    cta-link: "#pricing"
+    secondary-cta-text: "Explore Features"
+    secondary-cta-link: "#features"
+  analytics:
+    google-analytics-id: ""
+    google-tag-manager-id: ""
+    plausible-domain: ""
+    posthog-key: ""
+    posthog-host: "https://us.i.posthog.com"

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <section th:fragment="pricing" id="pricing" class="py-20 sm:py-28 bg-slate-50/60 dark:bg-slate-900/60 border-y border-slate-200/60 dark:border-slate-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <h2 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3">
+          Pricing Plans
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Simple, transparent pricing for any team size.
+        </h3>
+        <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
+          Start for free, scale when you are ready. No hidden fees or surprise charges.
+        </p>
+
+        <!-- Billing Toggle -->
+        <div class="mt-8 inline-flex items-center gap-3 p-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700">
+          <button type="button"
+                  id="billing-monthly-btn"
+                  onclick="setBillingPeriod('monthly')"
+                  class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition-all">
+            Monthly
+          </button>
+          <button type="button"
+                  id="billing-annual-btn"
+                  onclick="setBillingPeriod('annual')"
+                  class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-1.5">
+            <span>Annual</span>
+            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">Save 20%</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pricing Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+
+        <!-- Tier 1: Starter -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Starter</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">Ideal for quick prototypes and MVPs.</p>
+            <div class="flex items-baseline gap-1 mb-8">
+              <span class="text-4xl font-extrabold text-slate-900 dark:text-white">$0</span>
+              <span class="text-slate-500 dark:text-slate-400 text-sm">/ forever</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Full template source code</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Tailwind CSS v4 & HTMX</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Community GitHub Support</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <a href="#contact" class="w-full inline-flex items-center justify-center py-3 px-4 text-sm font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-xl transition-colors">
+              Get Started
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2: Pro (Highlighted) -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800 border-2 border-indigo-600 dark:border-indigo-500 shadow-xl shadow-indigo-500/10 flex flex-col justify-between relative transform md:-translate-y-2">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-extrabold uppercase tracking-wider shadow-md">
+            Most Popular
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Professional</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">For high-converting production launches.</p>
+            <div class="flex items-baseline gap-1 mb-8">
+              <span class="text-4xl font-extrabold text-slate-900 dark:text-white price-display" data-monthly="$29" data-annual="$23">$29</span>
+              <span class="text-slate-500 dark:text-slate-400 text-sm">/ month</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>All Starter features included</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Flyway & PostgreSQL Migrations</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Honeypot Anti-Spam Lead Forms</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>GitHub Actions CI/CD Pipeline</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <a href="#contact" class="w-full inline-flex items-center justify-center py-3 px-4 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-500 rounded-xl shadow-lg shadow-indigo-600/30 transition-all">
+              Choose Professional
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 3: Enterprise -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+          <div>
+            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Enterprise</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">For scaling companies and organizations.</p>
+            <div class="flex items-baseline gap-1 mb-8">
+              <span class="text-4xl font-extrabold text-slate-900 dark:text-white price-display" data-monthly="$99" data-annual="$79">$99</span>
+              <span class="text-slate-500 dark:text-slate-400 text-sm">/ month</span>
+            </div>
+
+            <!-- Features -->
+            <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>All Professional features included</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Multi-Environment Deployment</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Priority 24/7 SLA Support</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-8">
+            <a href="#contact" class="w-full inline-flex items-center justify-center py-3 px-4 text-sm font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-xl transition-colors">
+              Contact Sales
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Script for Billing Toggle Interactivity -->
+    <script>
+      function setBillingPeriod(period) {
+        const monthlyBtn = document.getElementById('billing-monthly-btn');
+        const annualBtn = document.getElementById('billing-annual-btn');
+        const priceElements = document.querySelectorAll('.price-display');
+
+        if (period === 'annual') {
+          monthlyBtn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all";
+          annualBtn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition-all flex items-center gap-1.5";
+          priceElements.forEach(el => el.innerText = el.getAttribute('data-annual'));
+        } else {
+          monthlyBtn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition-all";
+          annualBtn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-1.5";
+          priceElements.forEach(el => el.innerText = el.getAttribute('data-monthly'));
+        }
+      }
+    </script>
+  </section>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:fragment="seo-tags">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title th:text="${landing.site.title}">AuraLaunch - Modern Landing Page</title>
+    <meta name="title" th:content="${landing.site.title}" />
+    <meta name="description" th:content="${landing.site.description}" />
+    <meta name="author" th:content="${landing.site.author}" />
+    <link rel="canonical" th:href="${landing.site.url}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" th:content="${landing.site.url}" />
+    <meta property="og:title" th:content="${landing.site.title}" />
+    <meta property="og:description" th:content="${landing.site.description}" />
+    <meta property="og:image" th:content="${landing.site.ogImage}" />
+    <meta property="og:site_name" th:content="${landing.site.name}" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" th:content="${landing.site.url}" />
+    <meta property="twitter:title" th:content="${landing.site.title}" />
+    <meta property="twitter:description" th:content="${landing.site.description}" />
+    <meta property="twitter:image" th:content="${landing.site.ogImage}" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" th:inline="javascript">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": /*[[${landing.site.name}]]*/ "AuraLaunch",
+        "url": /*[[${landing.site.url}]]*/ "https://example.com",
+        "description": /*[[${landing.site.description}]]*/ "Modern Landing Page Template"
+      }
+    </script>
+  </head>
+</html>

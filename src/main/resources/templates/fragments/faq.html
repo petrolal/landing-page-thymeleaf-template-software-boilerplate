@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <section th:fragment="faq" id="faq" class="py-20 sm:py-28 bg-slate-50/60 dark:bg-slate-900/60 border-y border-slate-200/60 dark:border-slate-800 transition-colors">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20">
+        <h2 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3">
+          Got Questions?
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Frequently Asked Questions
+        </h3>
+        <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
+          Everything you need to know about the template and tech stack.
+        </p>
+      </div>
+
+      <!-- FAQ Accordion using HTML5 details/summary -->
+      <div class="space-y-4">
+        
+        <!-- Question 1 -->
+        <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
+            <span>What makes this template different from standard Spring Boot starters?</span>
+            <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
+              ↓
+            </span>
+          </summary>
+          <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            Most Spring Boot setups require configuring frontend build tooling from scratch or linking complex SPA frameworks. This template combines <strong>HTMX</strong> and <strong>Tailwind CSS v4</strong> in a single zero-Node Gradle build, pre-configured with JBang one-shot generation, SEO metadata, and full CI/CD deployment pipelines.
+          </p>
+        </details>
+
+        <!-- Question 2 -->
+        <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
+            <span>Do I need Node.js or npm installed to modify styles?</span>
+            <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
+              ↓
+            </span>
+          </summary>
+          <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            No! Gradle automatically downloads the official standalone Tailwind CLI executable for your operating system. Running <code>./gradlew build</code> or <code>./gradlew tailwindWatch</code> compiles styles with zero JavaScript runtime dependencies.
+          </p>
+        </details>
+
+        <!-- Question 3 -->
+        <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
+            <span>How does the JBang generator work?</span>
+            <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
+              ↓
+            </span>
+          </summary>
+          <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            Running <code>jbang init@petrolal/landing-page-thymeleaf-template-first my-project</code> triggers the included <code>init.kt</code> script. It downloads the template archive, refactors Kotlin packages recursively to your target package name, updates Gradle settings, and deletes generator artifacts so your new repository starts clean.
+          </p>
+        </details>
+
+        <!-- Question 4 -->
+        <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
+            <span>How is form spam prevented without CAPTCHA?</span>
+            <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
+              ↓
+            </span>
+          </summary>
+          <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            The forms include an invisible honeypot field. Automated spam bots automatically fill every input field they encounter. The backend detects this and silently drops the submission without requiring human visitors to solve frustrating puzzles.
+          </p>
+        </details>
+
+        <!-- Question 5 -->
+        <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
+            <span>How do I enable the PostgreSQL database?</span>
+            <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
+              ↓
+            </span>
+          </summary>
+          <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            PostgreSQL and Flyway dependencies are already in <code>build.gradle.kts</code> and <code>application.yaml</code>. Simply uncomment them and run <code>docker compose up -d postgres</code> to begin persisting leads and data.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <section th:fragment="testimonials" id="testimonials" class="py-20 sm:py-28 bg-white dark:bg-slate-900 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+        <h2 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3">
+          Social Proof
+        </h2>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Loved by developers, founders, and teams.
+        </h3>
+        <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
+          See why engineers are ditching heavy JavaScript build systems in favor of Spring Boot, Kotlin, and HTMX.
+        </p>
+      </div>
+
+      <!-- Testimonials Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Review 1 -->
+        <div class="rounded-3xl p-8 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 flex flex-col justify-between">
+          <div>
+            <!-- 5 Stars -->
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-slate-700 dark:text-slate-200 text-base leading-relaxed italic mb-6">
+              "We deployed our SaaS landing page in an afternoon. JBang scaffolding combined with GitHub Actions gave us a verified production pipeline instantly."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-700/80">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center font-bold text-white text-sm">
+              AR
+            </div>
+            <div>
+              <p class="font-bold text-slate-900 dark:text-white text-sm">Alex Rivera</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">CTO, CloudPulse</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="rounded-3xl p-8 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 flex flex-col justify-between">
+          <div>
+            <!-- 5 Stars -->
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-slate-700 dark:text-slate-200 text-base leading-relaxed italic mb-6">
+              "Not having to deal with npm or a separate node build is absolute bliss. The Tailwind Gradle compilation takes 25ms and the HTMX forms feel instant."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-700/80">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-500 flex items-center justify-center font-bold text-white text-sm">
+              SL
+            </div>
+            <div>
+              <p class="font-bold text-slate-900 dark:text-white text-sm">Sarah Lin</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Lead Engineer, HyperScale</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="rounded-3xl p-8 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 flex flex-col justify-between">
+          <div>
+            <!-- 5 Stars -->
+            <div class="flex text-amber-400 mb-4 gap-1">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="text-slate-700 dark:text-slate-200 text-base leading-relaxed italic mb-6">
+              "The anti-spam honeypot stopped our inbox from getting flooded with bot spam without putting an annoying captcha in front of real customers."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-slate-700/80">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-rose-500 to-pink-500 flex items-center justify-center font-bold text-white text-sm">
+              DM
+            </div>
+            <div>
+              <p class="font-bold text-slate-900 dark:text-white text-sm">David Miller</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Founder, DevStack Labs</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+</html>
