@@ -25,11 +25,13 @@ dependencies {
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)
 
-    // Database
-    implementation(libs.spring.boot.starter.data.jpa)
-    runtimeOnly(libs.postgresql)
-    implementation(libs.flyway.core)
-    implementation(libs.flyway.database.postgresql)
+    // Database dependencies
+    // Uncomment if you need to implement database persistence logic
+    //
+    // implementation(libs.spring.boot.starter.data.jpa)
+    // runtimeOnly(libs.postgresql)
+    // implementation(libs.flyway.core)
+    // implementation(libs.flyway.database.postgresql)
 
     // Tests
     testImplementation(libs.bundles.test)

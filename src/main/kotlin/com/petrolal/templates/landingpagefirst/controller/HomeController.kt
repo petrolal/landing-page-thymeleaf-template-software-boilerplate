@@ -6,6 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping
 
 @Controller
 class HomeController {
+    /**
+     * @Param
+     *
+     */
     @GetMapping
     fun index(model: Model): String {
         model.addAttribute("title", "Home Page")
