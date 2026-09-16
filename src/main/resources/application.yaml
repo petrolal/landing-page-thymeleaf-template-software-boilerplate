@@ -2,7 +2,6 @@ spring:
   application:
     name: landing-page-thymeleaf-template-software-boilerplate
 
-
   # datasource:
   #   url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:landing_db}
   #   username: ${DB_USERNAME:postgres}
@@ -40,9 +39,9 @@ landing:
   social:
     twitter: "https://twitter.com"
     github: "https://github.com/petrolal/landing-page-thymeleaf-template-software-boilerplate"
-    linkedin: "https://linkedin.com"
-    medium: "https://medium.com"
-    discord: "https://discord.com"
+    linkedin: "https://www.linkedin.com/in/lucas-petrola"
+    medium: "https://medium.com/@petrolalucas"
+    discord: "https://discord.com/users/https://discord.com"
   hero:
     badge: "⚡ 100% Free & Open Source • GNU GPL v3.0"
     cta-text: "Explore Documentation"
