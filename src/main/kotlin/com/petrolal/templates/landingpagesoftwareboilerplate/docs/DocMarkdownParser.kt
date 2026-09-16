@@ -141,33 +141,33 @@ class DocMarkdownParser {
                 when (type) {
                     "tip" ->
                         AdmonitionStyle(
-                            "border-emerald-500/30 dark:border-emerald-500/20",
-                            "bg-emerald-500/5 dark:bg-emerald-950/20",
-                            "text-emerald-800 dark:text-emerald-300",
+                            "border-[#98C379]/50",
+                            "bg-[#98C379]/10",
+                            "text-[#98C379]",
                             "💡",
                             "TIP",
                         )
                     "warning" ->
                         AdmonitionStyle(
-                            "border-amber-500/30 dark:border-amber-500/20",
-                            "bg-amber-500/5 dark:bg-amber-950/20",
-                            "text-amber-800 dark:text-amber-300",
+                            "border-[#E5C07B]/50",
+                            "bg-[#E5C07B]/10",
+                            "text-[#E5C07B]",
                             "⚠️",
                             "WARNING",
                         )
                     "danger", "important" ->
                         AdmonitionStyle(
-                            "border-rose-500/30 dark:border-rose-500/20",
-                            "bg-rose-500/5 dark:bg-rose-950/20",
-                            "text-rose-800 dark:text-rose-300",
+                            "border-[#E06C75]/50",
+                            "bg-[#E06C75]/10",
+                            "text-[#E06C75]",
                             "🚨",
                             "IMPORTANT",
                         )
                     else ->
                         AdmonitionStyle(
-                            "border-indigo-500/30 dark:border-indigo-500/20",
-                            "bg-indigo-500/5 dark:bg-indigo-950/20",
-                            "text-indigo-800 dark:text-indigo-300",
+                            "border-[#4EC9D9]/50",
+                            "bg-[#4EC9D9]/10",
+                            "text-[#4EC9D9]",
                             "ℹ️",
                             "NOTE",
                         )
@@ -182,7 +182,7 @@ class DocMarkdownParser {
     <span>$icon</span>
     <span>$displayTitle</span>
   </div>
-  <div class="text-sm text-slate-700 dark:text-slate-300 leading-relaxed space-y-2">
+  <div class="text-sm text-[#BCBEC4] leading-relaxed space-y-2">
 $body
   </div>
 </div>
@@ -223,7 +223,7 @@ $body
 
                 val anchorTag =
                     """<a href="#$slugId" class="anchor-link ml-2 opacity-0 """ +
-                        """group-hover:opacity-100 text-indigo-500 hover:text-indigo-600 transition-opacity" """ +
+                        """group-hover:opacity-100 text-[#C792EA] hover:text-[#D6A8F5] transition-opacity" """ +
                         """aria-hidden="true">#</a>"""
 
                 """<h$level id="$slugId" class="group relative flex items-center scroll-mt-24">$innerHtml$anchorTag</h$level>"""
@@ -256,20 +256,20 @@ $body
                 }
 
             """
-<div class="code-block-wrapper my-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-900 text-slate-100 overflow-hidden shadow-sm">
-  <div class="flex items-center justify-between px-4 py-2 bg-slate-800/80 border-b border-slate-700/50 text-xs font-mono text-slate-400">
-    <span class="flex items-center gap-2 font-medium tracking-wider text-slate-300">
-      <span class="w-2 h-2 rounded-full bg-indigo-500"></span>
+<div class="code-block-wrapper my-6 rounded-xl border border-[#2A2C36] bg-[#0C0D10] text-[#BCBEC4] overflow-hidden shadow-sm">
+  <div class="flex items-center justify-between px-4 py-2 bg-[#1E1F26] border-b border-[#2A2C36] text-xs font-mono text-[#8A8D94]">
+    <span class="flex items-center gap-2 font-medium tracking-wider text-[#BCBEC4]">
+      <span class="w-2 h-2 rounded-full bg-[#C792EA]"></span>
       $displayLang
     </span>
-    <button type="button" class="copy-code-btn flex items-center gap-1.5 px-2 py-1 rounded hover:bg-slate-700 text-slate-400 hover:text-slate-100 transition-all text-xs cursor-pointer" onclick="copyCodeBlock(this)">
+    <button type="button" class="copy-code-btn flex items-center gap-1.5 px-2 py-1 rounded hover:bg-[#2A2C36] text-[#8A8D94] hover:text-[#BCBEC4] transition-all text-xs cursor-pointer" onclick="copyCodeBlock(this)">
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
       </svg>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="p-4 overflow-x-auto text-sm leading-relaxed font-mono bg-slate-900 text-slate-100"><code class="language-$lang">$code</code></pre>
+  <pre class="p-4 overflow-x-auto text-sm leading-relaxed font-mono bg-[#0C0D10] text-[#BCBEC4]"><code class="language-$lang">$code</code></pre>
 </div>
             """.trimIndent()
         }

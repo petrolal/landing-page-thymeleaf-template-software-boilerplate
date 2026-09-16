@@ -84,16 +84,16 @@
             </div>
 
             <!-- Code snippet representation -->
-            <div class="space-y-2 text-slate-300">
-              <p><span class="text-purple-400">@Controller</span></p>
-              <p><span class="text-purple-400">class</span> <span class="text-amber-300">DocController</span>(</p>
-              <p class="pl-4"><span class="text-blue-300">private val</span> <span class="text-slate-200">docService</span>: <span class="text-amber-300">DocService</span></p>
+            <div class="space-y-2 text-[#BCBEC4]">
+              <p><span class="text-[#98C379]">@Controller</span></p>
+              <p><span class="text-[#C792EA]">class</span> <span class="text-[#4EC9D9]">DocController</span>(</p>
+              <p class="pl-4"><span class="text-[#9A7FC7]">private val</span> <span class="text-[#A9B2C3]">docService</span>: <span class="text-[#4EC9D9]">DocService</span></p>
               <p>) {</p>
-              <p class="pl-4"><span class="text-purple-400">@GetMapping</span>(<span class="text-emerald-300">"/docs/{slug}"</span>)</p>
-              <p class="pl-4"><span class="text-blue-300">fun</span> <span class="text-indigo-400">getDocPage</span>(<span class="text-purple-400">@PathVariable</span> <span class="text-slate-200">slug</span>: <span class="text-amber-300">String</span>, <span class="text-slate-200">model</span>: <span class="text-amber-300">Model</span>): <span class="text-amber-300">String</span> {</p>
-              <p class="pl-8"><span class="text-slate-500">// LazyVim-style docs with markdown, frontmatter, & instant search</span></p>
-              <p class="pl-8"><span class="text-slate-200">model</span>.addAttribute(<span class="text-emerald-300">"page"</span>, <span class="text-slate-200">docService</span>.getPage(<span class="text-slate-200">slug</span>))</p>
-              <p class="pl-8"><span class="text-blue-300">return</span> <span class="text-emerald-300">"docs/page"</span></p>
+              <p class="pl-4"><span class="text-[#98C379]">@GetMapping</span>(<span class="text-[#E0965B]">"/docs/{slug}"</span>)</p>
+              <p class="pl-4"><span class="text-[#9A7FC7]">fun</span> <span class="text-[#E0C878]">getDocPage</span>(<span class="text-[#98C379]">@PathVariable</span> <span class="text-[#A9B2C3]">slug</span>: <span class="text-[#4EC9D9]">String</span>, <span class="text-[#A9B2C3]">model</span>: <span class="text-[#4EC9D9]">Model</span>): <span class="text-[#4EC9D9]">String</span> {</p>
+              <p class="pl-8"><span class="text-[#6B7688]">// LazyVim-style docs with markdown, frontmatter, & instant search</span></p>
+              <p class="pl-8"><span class="text-[#A9B2C3]">model</span>.<span class="text-[#E0C878]">addAttribute</span>(<span class="text-[#E0965B]">"page"</span>, <span class="text-[#A9B2C3]">docService</span>.<span class="text-[#E0C878]">getPage</span>(<span class="text-[#A9B2C3]">slug</span>))</p>
+              <p class="pl-8"><span class="text-[#C792EA]">return</span> <span class="text-[#E0965B]">"docs/page"</span></p>
               <p class="pl-4">}</p>
               <p>}</p>
             </div>
