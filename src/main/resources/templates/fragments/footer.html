@@ -189,13 +189,22 @@
                 >GitHub Repository</a
               >
             </li>
+            <li th:if="${#strings.length(landing.social.discord) > 0}">
+              <a
+                th:href="${landing.social.discord}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-[#C792EA] transition-colors"
+                >Discord Community</a
+              >
+            </li>
             <li>
               <a
                 th:href="${landing.sponsor.buyMeACoffee}"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
-                >Buy Me a Coffee Account</a
+                >Buy Me a Coffee</a
               >
             </li>
             <li>
@@ -229,6 +238,24 @@
             Project
           </h4>
           <ul class="space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
+            <li th:if="${#strings.length(landing.social.linkedin) > 0}">
+              <a
+                th:href="${landing.social.linkedin}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-[#4EC9D9] transition-colors"
+                >LinkedIn Profile</a
+              >
+            </li>
+            <li th:if="${#strings.length(landing.social.medium) > 0}">
+              <a
+                th:href="${landing.social.medium}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-white transition-colors"
+                >Medium Articles</a
+              >
+            </li>
             <li>
               <a
                 th:href="${landing.social.github + '/blob/main/LICENSE'}"

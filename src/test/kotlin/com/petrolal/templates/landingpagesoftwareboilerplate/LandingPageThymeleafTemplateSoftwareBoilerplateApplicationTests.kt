@@ -33,6 +33,7 @@ class LandingPageThymeleafTemplateSoftwareBoilerplateApplicationTests {
             .andExpect(content().string(containsString("buymeacoffee.com/petrolal")))
             .andExpect(content().string(containsString("title=\"LinkedIn\"")))
             .andExpect(content().string(containsString("title=\"Medium\"")))
+            .andExpect(content().string(containsString("title=\"Discord Community\"")))
     }
 
     @Test
