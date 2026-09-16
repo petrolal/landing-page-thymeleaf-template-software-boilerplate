@@ -1,122 +1,153 @@
-# Landing Page Thymeleaf Template
+# AuraLaunch — Open Source Developer Platform & Boilerplate
 
-A modern, production-ready template for building high-performance landing pages and web applications using **Spring Boot 3**, **Kotlin**, **Thymeleaf**, and **HTMX**.
+A modern, production-ready developer platform and software landing page template built with **Spring Boot 3.4**, **Kotlin 2.1**, **Thymeleaf**, **HTMX 2.0**, and **Tailwind CSS v4** (Zero Node.js). 
 
-Configured as a general template that can be instantiated instantly using **[JBang](https://www.jbang.dev/)** and continuously validated with **GitHub Actions**.
+Featuring a built-in **LazyVim-style documentation engine** (`/docs`), automated CI/CD pipelines, dark mode color theme, and one-command scaffolding via **[JBang](https://www.jbang.dev/)**.
 
 ---
 
-## Quickstart with JBang
+## ⚡ Quick Start: 3 Ways to Download & Edit
 
-You can scaffold a fresh project from this template without cloning or manual setup using JBang.
+### Option 1: One-Command Scaffolding with JBang (Recommended)
 
-### 1. Install JBang (if not already installed)
-
-```bash
-# Via SDKMAN!
-sdk install jbang
-
-# Or via Homebrew (macOS / Linux)
-brew install jbangdev/tap/jbang
-
-# Or via curl / bash
-curl -Ls https://sh.jbang.dev | bash -s - app setup
-```
-
-### 2. Scaffold a New Project
-
-Run the generator directly referencing this GitHub repository:
+You can generate a fresh, customized copy of this boilerplate without manually cloning or renaming packages:
 
 ```bash
-# Generate with defaults (directory: my-landing-page, package: com.petrolal.landingpage)
+# 1. Install JBang (if not already installed)
+curl -Ls https://sh.jbang.dev | bash -s - app setup   # Linux / macOS
+# or: sdk install jbang / brew install jbangdev/tap/jbang
+
+# 2. Scaffold your project
 jbang init@petrolal/landing-page-thymeleaf-template-software-boilerplate my-project
 
-# Or specify a custom target package
+# Or specify a custom target package:
 jbang init@petrolal/landing-page-thymeleaf-template-software-boilerplate \
-  --package com.mycompany.webapp \
-  my-company-landing
-
-# Or run using the repository name directly
-jbang petrolal/landing-page-thymeleaf-template-software-boilerplate my-company-landing
+  --package com.mycompany.app \
+  my-company-app
 ```
 
-### Generator Options
+### Option 2: Clone with Git
 
-| Option | Flag | Description | Default |
-|---|---|---|---|
-| `<projectName>` | *positional* | Target directory & project name | `my-landing-page` |
-| `--package` | `-p` | Base Kotlin package for the new project | `com.petrolal.landingpage` |
-| `--branch` | `-b` | Git branch or release tag to pull from | `main` |
-| `--repo` | `-r` | GitHub repository to fetch template from | `petrolal/landing-page-thymeleaf-template-software-boilerplate` |
-| `--archive` | `-a` | Local `.tar.gz` archive path (for offline/CI) | *none* |
+```bash
+git clone https://github.com/petrolal/landing-page-thymeleaf-template-software-boilerplate.git my-project
+cd my-project
+```
 
-### 3. Run Your New Project
+### Option 3: GitHub Template Repository
+
+Click the **"Use this template"** button at the top of the GitHub repository to create a new repository under your account.
+
+---
+
+## 🚀 Running Your Project Locally
 
 ```bash
 cd my-project
-git init
+
+# Run the development server
 ./gradlew bootRun
 ```
 
-Visit [http://localhost:8080](http://localhost:8080) in your browser.
+- **Landing Page**: [http://localhost:8080](http://localhost:8080)
+- **Documentation**: [http://localhost:8080/docs](http://localhost:8080/docs)
+- **Swagger OpenAPI**: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
 ---
 
-## Tech Stack & Features
+## 📚 Built-in LazyVim-Style Documentation (`/docs`)
 
-- **Kotlin 2.1** with strict null-safety and idiomatic patterns.
-- **Spring Boot 3.4** (Web, Thymeleaf, DevTools).
-- **HTMX 2.0** integrated via WebJars.
-- **SpringDoc OpenAPI** with Swagger UI support (`/swagger-ui.html`).
-- **Ktlint** plugin configured for code formatting & verification (`./gradlew ktlintCheck`).
-- **PostgreSQL & Flyway** configuration ready out-of-the-box (commented in `build.gradle.kts` and `application.yaml`).
-- **Docker & Docker Compose** ready (`Dockerfile`, `docker-compose.yml`, and Gradle tasks `dockerBuild` / `dockerRun`).
+Ship documentation directly alongside your code:
+
+- **Adding Documentation Pages**: Add Markdown files (`.md`) to `src/main/resources/docs/`.
+- **Frontmatter Support**: Set title, category, description, order, and badges in YAML frontmatter.
+- **Instant Search Dialog**: Press <kbd>Ctrl</kbd> + <kbd>K</kbd> or <kbd>/</kbd> to open instant full-text search.
+- **Callouts / Admonitions**: Use `:::tip`, `:::warning`, `:::danger`, or `:::info` blocks.
+- **TOC & Scrollspy**: Dynamic table of contents with automatic scroll position tracking.
+
+```markdown
+---
+title: "Custom Module"
+description: "How to configure and build custom modules."
+category: "Guide"
+order: 2
+badge: "New"
+---
+
+# Custom Module
+
+Here is how you initialize the module:
+
+:::tip Performance Tip
+Compile Tailwind CSS using `./gradlew buildTailwind` for fast asset builds.
+:::
+```
 
 ---
 
-## Local Development Commands
+## ⚙️ Configuration & Customization
 
-- **Run development server:**
-  ```bash
-  ./gradlew bootRun
-  ```
-- **Run tests and ktlint checks:**
-  ```bash
-  ./gradlew check
-  ```
-- **Format code with ktlint:**
-  ```bash
-  ./gradlew ktlintFormat
-  ```
-- **Build executable JAR:**
-  ```bash
-  ./gradlew bootJar
-  ```
-- **Build Docker image:**
-  ```bash
-  ./gradlew dockerBuild
-  ```
-- **Start Postgres database container:**
-  ```bash
-  docker compose up -d postgres
-  ```
+All site branding, social links, hero text, and doc settings are customized in `src/main/resources/application.yaml`:
+
+```yaml
+landing:
+  site:
+    name: "MyProduct"
+    title: "MyProduct — Open Source Developer Platform"
+    tagline: "High-performance software built with Kotlin & Spring Boot."
+    license: "GNU General Public License v3.0"
+  social:
+    github: "https://github.com/yourname/repo"
+    linkedin: "https://linkedin.com/in/yourprofile"
+    medium: "https://medium.com/@yourprofile"
+    twitter: "https://twitter.com/yourhandle"
+    discord: "https://discord.gg/yourserver"
+  sponsor:
+    buy-me-a-coffee: "https://buymeacoffee.com/youraccount"
+  docs:
+    enabled: true
+    title: "MyProduct Docs"
+    version: "v1.0.0"
+```
 
 ---
 
-## CI / CD Pipelines (GitHub Actions)
+## 🛠️ Local Development & Build Commands
 
-This repository includes automated GitHub Actions workflows:
+| Command | Description |
+|---|---|
+| `./gradlew bootRun` | Start local Spring Boot application |
+| `./gradlew buildTailwind` | Compile Tailwind CSS v4 standalone binary |
+| `./gradlew tailwindWatch` | Watch and live recompile Tailwind CSS changes |
+| `./gradlew check` | Run unit tests and ktlint verification |
+| `./gradlew ktlintFormat` | Auto-format Kotlin source code |
+| `./gradlew bootJar` | Package production executable JAR |
+| `./gradlew dockerBuild` | Build Docker container image |
+| `docker compose up -d postgres` | Start local PostgreSQL database container |
 
-1. **Continuous Integration (`.github/workflows/ci.yml`)**:
-   - Runs on every `push` and `pull_request` to `main`.
-   - Sets up Java 21 and caches Gradle dependencies.
-   - Executes `./gradlew check` (ktlint, tests, compiler verification).
-   - Verifies `./gradlew bootJar` and Docker image packaging.
-   - Validates `jbang-catalog.json` and `init.kt`.
-   - Runs an end-to-end scaffolding test using JBang and verifies `./gradlew check` passes on the newly generated application.
+---
 
-2. **Template Release / Deployment (`.github/workflows/release.yml`)**:
-   - Triggers on tag pushes (`v*`) or manual `workflow_dispatch`.
-   - Runs validation builds.
-   - Bundles clean `.tar.gz` and `.zip` distribution packages.
-   - Publishes GitHub Releases with ready-to-use JBang commands.
+## 🎨 Tech Stack
+
+- **Kotlin 2.1** with strict null-safety and type-safe configuration.
+- **Spring Boot 3.4** (Web, Thymeleaf, DevTools, Validation).
+- **HTMX 2.0** for reactive AJAX form swaps without frontend framework bloat.
+- **Tailwind CSS v4 Standalone** (zero Node.js or npm dependencies).
+- **CommonMark & GFM Tables** for dynamic markdown documentation rendering.
+- **Ktlint** plugin configured for code styling consistency.
+- **PostgreSQL & Flyway** migrations ready out-of-the-box.
+- **Docker & Docker Compose** production configuration included.
+
+---
+
+## ☕ Support & Sponsoring
+
+If this template saved you hours of boilerplate configuration, consider supporting ongoing open-source maintenance:
+
+- **Buy Me a Coffee**: [buymeacoffee.com/petrolal](https://buymeacoffee.com/petrolal)
+- **GitHub Sponsors**: [github.com/sponsors/petrolal](https://github.com/sponsors/petrolal)
+
+---
+
+## ⚖️ License
+
+Distributed under the **[GNU General Public License v3.0](LICENSE)** (GNU GPLv3).
