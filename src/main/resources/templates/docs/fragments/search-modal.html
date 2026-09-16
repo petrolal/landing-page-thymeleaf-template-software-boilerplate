@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <!-- Search Modal Dialog Fragment -->
+  <div th:fragment="modal" id="search-modal" class="fixed inset-0 z-50 hidden items-start justify-center pt-16 sm:pt-24 px-4 bg-slate-900/60 backdrop-blur-sm transition-all" role="dialog" aria-modal="true">
+    
+    <div class="relative w-full max-w-2xl rounded-2xl bg-white dark:bg-slate-900 shadow-2xl border border-slate-200 dark:border-slate-800 overflow-hidden transform transition-all animate-in fade-in zoom-in-95 duration-150">
+      
+      <!-- Search Input Bar -->
+      <div class="relative flex items-center px-4 py-3.5 border-b border-slate-200 dark:border-slate-800">
+        <svg class="w-5 h-5 text-slate-400 dark:text-slate-500 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input type="text"
+               id="search-input"
+               placeholder="Search docs, guides, keymaps..."
+               autocomplete="off"
+               class="w-full bg-transparent text-base text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 outline-none focus:ring-0 border-none p-0" />
+        
+        <button type="button"
+                onclick="closeSearchModal()"
+                aria-label="Close search"
+                class="p-1 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <kbd class="text-[11px] font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400">ESC</kbd>
+        </button>
+      </div>
+
+      <!-- Search Results / Quick Suggestions Container -->
+      <div id="search-results" class="max-h-96 overflow-y-auto p-3 space-y-1">
+        <!-- Results will be injected dynamically via JS -->
+      </div>
+
+      <!-- Quick Default Suggestions (shown when input is empty) -->
+      <div id="search-defaults" class="p-4 space-y-3">
+        <div class="text-xs font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-2">
+          Popular Topics
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <a th:href="@{/docs/quickstart}" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors group">
+            <span class="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-base">⚡</span>
+            <div>
+              <span class="text-sm font-semibold text-slate-800 dark:text-slate-200 block group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Quick Start</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Get running in 5 minutes</span>
+            </div>
+          </a>
+          <a th:href="@{/docs/installation}" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors group">
+            <span class="w-8 h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-base">📥</span>
+            <div>
+              <span class="text-sm font-semibold text-slate-800 dark:text-slate-200 block group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Installation</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Prerequisites & clone</span>
+            </div>
+          </a>
+          <a th:href="@{/docs/keymaps}" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors group">
+            <span class="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-950/60 text-purple-600 dark:text-purple-400 flex items-center justify-center text-base">⌨️</span>
+            <div>
+              <span class="text-sm font-semibold text-slate-800 dark:text-slate-200 block group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Keymaps & Cheatsheet</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400">LazyVim-style hotkeys</span>
+            </div>
+          </a>
+          <a th:href="@{/docs/deployment}" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors group">
+            <span class="w-8 h-8 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-base">🚢</span>
+            <div>
+              <span class="text-sm font-semibold text-slate-800 dark:text-slate-200 block group-hover:text-indigo-600 dark:group-hover:text-indigo-400">Docker & Production</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400">Containers & cloud deploy</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Modal Footer Keyboard Shortcuts -->
+      <div class="flex items-center justify-between px-4 py-2.5 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 font-mono">
+        <div class="flex items-center gap-3">
+          <span class="flex items-center gap-1">
+            <kbd class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">↑</kbd>
+            <kbd class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">↓</kbd>
+            <span class="font-sans ml-0.5">navigate</span>
+          </span>
+          <span class="flex items-center gap-1">
+            <kbd class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">↵</kbd>
+            <span class="font-sans ml-0.5">select</span>
+          </span>
+          <span class="flex items-center gap-1">
+            <kbd class="px-1.5 py-0.5 rounded bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700">esc</kbd>
+            <span class="font-sans ml-0.5">close</span>
+          </span>
+        </div>
+        <div class="text-[10px] uppercase font-sans tracking-wide text-slate-400">
+          AuraLaunch Docs
+        </div>
+      </div>
+
+    </div>
+  </div>
+</html>

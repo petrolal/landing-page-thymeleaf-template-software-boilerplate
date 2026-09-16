@@ -1,171 +1,163 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <section th:fragment="pricing" id="pricing" class="py-20 sm:py-28 bg-slate-50/60 dark:bg-slate-900/60 border-y border-slate-200/60 dark:border-slate-800 transition-colors">
+  <section th:fragment="pricing" id="sponsor" class="py-20 sm:py-28 bg-slate-50/60 dark:bg-slate-900/60 border-y border-slate-200/60 dark:border-slate-800 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+      <div class="text-center max-w-3xl mx-auto mb-16">
         <h2 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3">
-          Pricing Plans
+          Support Open Source
         </h2>
         <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Simple, transparent pricing for any team size.
+          100% Free & Open Source. Fuel the project with a coffee.
         </h3>
-        <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
-          Start for free, scale when you are ready. No hidden fees or surprise charges.
+        <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+          AuraLaunch is distributed under the <strong class="text-slate-900 dark:text-white">GNU General Public License v3.0</strong>. If this template saved you hours of boilerplate setup, consider buying a coffee to support continuous maintenance and new features.
         </p>
-
-        <!-- Billing Toggle -->
-        <div class="mt-8 inline-flex items-center gap-3 p-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 border border-slate-300/60 dark:border-slate-700">
-          <button type="button"
-                  id="billing-monthly-btn"
-                  onclick="setBillingPeriod('monthly')"
-                  class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition-all">
-            Monthly
-          </button>
-          <button type="button"
-                  id="billing-annual-btn"
-                  onclick="setBillingPeriod('annual')"
-                  class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-1.5">
-            <span>Annual</span>
-            <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">Save 20%</span>
-          </button>
-        </div>
       </div>
 
-      <!-- Pricing Cards Grid -->
+      <!-- Sponsor / Coffee Cards Grid -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
 
-        <!-- Tier 1: Starter -->
-        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+        <!-- Tier 1: Buy a Coffee -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-all">
           <div>
-            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Starter</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">Ideal for quick prototypes and MVPs.</p>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl mb-4 border border-amber-200/60 dark:border-amber-800/40">
+              ☕
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Buy a Coffee</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">A quick contribution to fuel late-night coding sessions and server costs.</p>
             <div class="flex items-baseline gap-1 mb-8">
-              <span class="text-4xl font-extrabold text-slate-900 dark:text-white">$0</span>
-              <span class="text-slate-500 dark:text-slate-400 text-sm">/ forever</span>
+              <span class="text-4xl font-extrabold text-slate-900 dark:text-white">$5</span>
+              <span class="text-slate-500 dark:text-slate-400 text-sm">/ one-time</span>
             </div>
 
-            <!-- Features -->
+            <!-- Perks -->
             <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>Full template source code</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Heartfelt thank you from maintainers</span>
               </li>
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>Tailwind CSS v4 & HTMX</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Supporter badge on GitHub Discussions</span>
               </li>
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>Community GitHub Support</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Good karma & open source solidarity</span>
               </li>
             </ul>
           </div>
 
           <div class="mt-8">
-            <a href="#contact" class="w-full inline-flex items-center justify-center py-3 px-4 text-sm font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-xl transition-colors">
-              Get Started
+            <a th:href="${landing.sponsor.buyMeACoffee}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-sm font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-xl transition-colors">
+              <span>☕</span>
+              <span>Buy 1 Coffee ($5)</span>
             </a>
           </div>
         </div>
 
-        <!-- Tier 2: Pro (Highlighted) -->
+        <!-- Tier 2: Project Backer -->
         <div class="rounded-3xl p-8 bg-white dark:bg-slate-800 border-2 border-indigo-600 dark:border-indigo-500 shadow-xl shadow-indigo-500/10 flex flex-col justify-between relative transform md:-translate-y-2">
-          <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-xs font-extrabold uppercase tracking-wider shadow-md">
-            Most Popular
-          </div>
-
           <div>
-            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Professional</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">For high-converting production launches.</p>
+            <div class="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl mb-4 border border-indigo-200 dark:border-indigo-800/60">
+              🚀
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Project Supporter</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">For developers and freelancers shipping real client and commercial projects.</p>
             <div class="flex items-baseline gap-1 mb-8">
-              <span class="text-4xl font-extrabold text-slate-900 dark:text-white price-display" data-monthly="$29" data-annual="$23">$29</span>
-              <span class="text-slate-500 dark:text-slate-400 text-sm">/ month</span>
+              <span class="text-4xl font-extrabold text-slate-900 dark:text-white">$15</span>
+              <span class="text-slate-500 dark:text-slate-400 text-sm">/ coffee pack</span>
             </div>
 
-            <!-- Features -->
+            <!-- Perks -->
             <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>All Starter features included</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Name / avatar listed in project README</span>
               </li>
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>Flyway & PostgreSQL Migrations</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Priority issue triage & PR review</span>
               </li>
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>Honeypot Anti-Spam Lead Forms</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Early access to new modules & boilerplates</span>
               </li>
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>GitHub Actions CI/CD Pipeline</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Direct access in Community Discord</span>
               </li>
             </ul>
           </div>
 
           <div class="mt-8">
-            <a href="#contact" class="w-full inline-flex items-center justify-center py-3 px-4 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-500 rounded-xl shadow-lg shadow-indigo-600/30 transition-all">
-              Choose Professional
+            <a th:href="${landing.sponsor.buyMeACoffee}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-500 rounded-xl shadow-lg shadow-indigo-600/30 transition-all">
+              <span>☕</span>
+              <span>Support with $15</span>
             </a>
           </div>
         </div>
 
-        <!-- Tier 3: Enterprise -->
-        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+        <!-- Tier 3: Organization / Sponsor -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-600 transition-all">
           <div>
-            <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Enterprise</h4>
-            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">For scaling companies and organizations.</p>
+            <div class="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 flex items-center justify-center text-2xl mb-4">
+              🏢
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Corporate Sponsor</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">For companies and engineering teams building on our stack.</p>
             <div class="flex items-baseline gap-1 mb-8">
-              <span class="text-4xl font-extrabold text-slate-900 dark:text-white price-display" data-monthly="$99" data-annual="$79">$99</span>
+              <span class="text-4xl font-extrabold text-slate-900 dark:text-white">$100+</span>
               <span class="text-slate-500 dark:text-slate-400 text-sm">/ month</span>
             </div>
 
-            <!-- Features -->
+            <!-- Perks -->
             <ul class="space-y-4 text-sm text-slate-600 dark:text-slate-300">
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>All Professional features included</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Prominent logo on site & documentation</span>
               </li>
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>Multi-Environment Deployment</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>1-on-1 JVM & Architecture consulting call</span>
               </li>
               <li class="flex items-center gap-3">
-                <svg class="w-5 h-5 text-indigo-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                <span>Priority 24/7 SLA Support</span>
+                <svg class="w-5 h-5 text-indigo-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Feature request prioritization</span>
               </li>
             </ul>
           </div>
 
           <div class="mt-8">
-            <a href="#contact" class="w-full inline-flex items-center justify-center py-3 px-4 text-sm font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-xl transition-colors">
-              Contact Sales
+            <a th:href="${landing.sponsor.buyMeACoffee}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 text-sm font-semibold text-slate-800 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 rounded-xl transition-colors">
+              <span>Sponsor Project</span>
             </a>
           </div>
         </div>
 
       </div>
+
+      <!-- Clean Support Link Footer -->
+      <div class="mt-12 text-center text-xs text-slate-500 dark:text-slate-400">
+        Direct Buy Me a Coffee account:
+        <a th:href="${landing.sponsor.buyMeACoffee}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="text-indigo-600 dark:text-indigo-400 font-semibold hover:underline ml-1">
+          buymeacoffee.com/petrolal
+        </a>
+      </div>
+
     </div>
-
-    <!-- Script for Billing Toggle Interactivity -->
-    <script>
-      function setBillingPeriod(period) {
-        const monthlyBtn = document.getElementById('billing-monthly-btn');
-        const annualBtn = document.getElementById('billing-annual-btn');
-        const priceElements = document.querySelectorAll('.price-display');
-
-        if (period === 'annual') {
-          monthlyBtn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all";
-          annualBtn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition-all flex items-center gap-1.5";
-          priceElements.forEach(el => el.innerText = el.getAttribute('data-annual'));
-        } else {
-          monthlyBtn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition-all";
-          annualBtn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all flex items-center gap-1.5";
-          priceElements.forEach(el => el.innerText = el.getAttribute('data-monthly'));
-        }
-      }
-    </script>
   </section>
 </html>

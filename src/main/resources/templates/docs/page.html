@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en" class="dark" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="~{fragments/layout :: common-header(${pageTitle})}"></head>
+  
+  <body class="bg-slate-900 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white flex flex-col">
+    
+    <!-- 1. Top Sticky Docs Navbar -->
+    <th:block th:replace="~{docs/fragments/navbar :: navbar}"></th:block>
+
+    <!-- 2. Interactive Search Modal (Ctrl+K) -->
+    <th:block th:replace="~{docs/fragments/search-modal :: modal}"></th:block>
+
+    <!-- 3. Main Docs 3-Column Layout Container -->
+    <div class="flex-1 max-w-8xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex">
+      
+      <!-- Left Column: Navigation Sidebar -->
+      <th:block th:replace="~{docs/fragments/sidebar :: sidebar}"></th:block>
+
+      <!-- Center Column: Main Documentation Article -->
+      <main class="flex-1 min-w-0 py-8 lg:px-8 xl:px-12">
+        <div class="max-w-3xl mx-auto xl:max-w-4xl">
+          
+          <!-- Breadcrumbs Navigation -->
+          <nav aria-label="Breadcrumbs" class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-6">
+            <a th:href="@{/docs}" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Docs</a>
+            <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+            <span th:text="${page.category}">Getting Started</span>
+            <svg class="w-3 h-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+            <span class="font-medium text-slate-900 dark:text-slate-200" th:text="${page.title}">Overview</span>
+          </nav>
+
+          <!-- Document Header -->
+          <header class="pb-6 mb-8 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white" th:text="${page.title}">
+                Documentation Page Title
+              </h1>
+              <span th:if="${page.badge != null}"
+                    th:text="${page.badge}"
+                    class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800/60">
+                Badge
+              </span>
+            </div>
+            
+            <p th:if="${#strings.length(page.description) > 0}"
+               class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed"
+               th:text="${page.description}">
+              Description of the page.
+            </p>
+          </header>
+
+          <!-- Markdown Rendered Article Body -->
+          <article class="prose-doc text-slate-700 dark:text-slate-300"
+                   th:utext="${page.contentHtml}">
+            <!-- Markdown content will be rendered here -->
+          </article>
+
+          <!-- Previous & Next Navigation Cards -->
+          <div class="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- Previous Page Card -->
+            <div>
+              <a th:if="${page.prevPage != null}"
+                 th:href="@{${page.prevPage.url}}"
+                 class="group flex flex-col p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500/60 dark:hover:border-indigo-500/60 bg-white dark:bg-slate-900/50 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-all">
+                <span class="flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 mb-1">
+                  <svg class="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                  <span>Previous</span>
+                </span>
+                <span class="text-sm font-semibold text-slate-900 dark:text-white" th:text="${page.prevPage.title}">
+                  Previous Page Title
+                </span>
+              </a>
+            </div>
+
+            <!-- Next Page Card -->
+            <div class="sm:text-right">
+              <a th:if="${page.nextPage != null}"
+                 th:href="@{${page.nextPage.url}}"
+                 class="group flex flex-col p-4 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-indigo-500/60 dark:hover:border-indigo-500/60 bg-white dark:bg-slate-900/50 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-all sm:items-end">
+                <span class="flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 mb-1">
+                  <span>Next</span>
+                  <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+                <span class="text-sm font-semibold text-slate-900 dark:text-white" th:text="${page.nextPage.title}">
+                  Next Page Title
+                </span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Page Feedback Card -->
+          <div class="mt-8 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400">
+            <span>Was this documentation page helpful?</span>
+            <div class="flex items-center gap-2" id="feedback-container">
+              <button type="button" onclick="handleFeedback(true)" class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer">
+                <span>👍</span> <span>Yes</span>
+              </button>
+              <button type="button" onclick="handleFeedback(false)" class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer">
+                <span>👎</span> <span>No</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <!-- Right Column: Table of Contents & Quick Actions -->
+      <th:block th:replace="~{docs/fragments/toc :: toc}"></th:block>
+
+    </div>
+
+    <!-- Hidden Search Index Data for Instant Client Search -->
+    <script id="search-data" type="application/json" th:utext="${searchIndexJson}"></script>
+
+    <!-- Documentation Interactive Scripts -->
+    <script>
+      // 1. Copy Code Block Functionality
+      function copyCodeBlock(btn) {
+        const wrapper = btn.closest('.code-block-wrapper');
+        const codeElement = wrapper ? wrapper.querySelector('code') : null;
+        if (!codeElement) return;
+
+        navigator.clipboard.writeText(codeElement.innerText).then(() => {
+          const originalText = btn.innerHTML;
+          btn.innerHTML = `
+            <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-emerald-400">Copied!</span>
+          `;
+          setTimeout(() => {
+            btn.innerHTML = originalText;
+          }, 2000);
+        }).catch(err => {
+          console.error("Failed to copy code: ", err);
+        });
+      }
+
+      // 2. Feedback Handler
+      function handleFeedback(isHelpful) {
+        const container = document.getElementById('feedback-container');
+        if (container) {
+          container.innerHTML = `
+            <span class="text-indigo-600 dark:text-indigo-400 font-medium">
+              Thank you for your feedback! ❤️
+            </span>
+          `;
+        }
+      }
+
+      // 3. Search Modal Management
+      const searchModal = document.getElementById('search-modal');
+      const searchInput = document.getElementById('search-input');
+      const searchResults = document.getElementById('search-results');
+      const searchDefaults = document.getElementById('search-defaults');
+      let searchIndex = [];
+      let selectedIndex = -1;
+
+      try {
+        const rawJson = document.getElementById('search-data')?.textContent;
+        if (rawJson) {
+          searchIndex = JSON.parse(rawJson);
+        }
+      } catch (e) {
+        console.error("Failed to parse search index data", e);
+      }
+
+      function openSearchModal() {
+        if (!searchModal) return;
+        searchModal.classList.remove('hidden');
+        searchModal.classList.add('flex');
+        searchInput?.focus();
+        if (searchInput) searchInput.value = '';
+        renderSearchResults('');
+      }
+
+      function closeSearchModal() {
+        if (!searchModal) return;
+        searchModal.classList.add('hidden');
+        searchModal.classList.remove('flex');
+      }
+
+      function renderSearchResults(query) {
+        if (!searchResults || !searchDefaults) return;
+        const q = query.trim().toLowerCase();
+
+        if (!q) {
+          searchResults.innerHTML = '';
+          searchDefaults.classList.remove('hidden');
+          selectedIndex = -1;
+          return;
+        }
+
+        searchDefaults.classList.add('hidden');
+        const matches = searchIndex.filter(item =>
+          item.title.toLowerCase().includes(q) ||
+          item.category.toLowerCase().includes(q) ||
+          item.snippet.toLowerCase().includes(q)
+        ).slice(0, 8);
+
+        if (matches.length === 0) {
+          searchResults.innerHTML = `
+            <div class="py-8 text-center text-sm text-slate-500 dark:text-slate-400">
+              No documentation pages matching "<span class="font-medium text-slate-900 dark:text-white">${query}</span>"
+            </div>
+          `;
+          selectedIndex = -1;
+          return;
+        }
+
+        selectedIndex = 0;
+        searchResults.innerHTML = matches.map((item, idx) => `
+          <a href="${item.url}"
+             class="search-result-item flex items-center justify-between p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ${idx === 0 ? 'bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400' : 'text-slate-800 dark:text-slate-200'}"
+             data-index="${idx}">
+            <div class="space-y-0.5">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wide font-mono">${item.category}</span>
+                <span class="text-slate-300 dark:text-slate-700">•</span>
+                <span class="text-sm font-bold">${item.title}</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">${item.snippet}</p>
+            </div>
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        `).join('');
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          renderSearchResults(e.target.value);
+        });
+
+        searchInput.addEventListener('keydown', (e) => {
+          const items = searchResults.querySelectorAll('.search-result-item');
+          if (items.length === 0) return;
+
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            selectedIndex = (selectedIndex + 1) % items.length;
+            updateSelectedSearchItem(items);
+          } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+            updateSelectedSearchItem(items);
+          } else if (e.key === 'Enter') {
+            e.preventDefault();
+            if (selectedIndex >= 0 && selectedIndex < items.length) {
+              items[selectedIndex].click();
+            }
+          }
+        });
+      }
+
+      function updateSelectedSearchItem(items) {
+        items.forEach((item, idx) => {
+          if (idx === selectedIndex) {
+            item.classList.add('bg-indigo-50/70', 'dark:bg-indigo-950/40', 'text-indigo-600', 'dark:text-indigo-400');
+            item.scrollIntoView({ block: 'nearest' });
+          } else {
+            item.classList.remove('bg-indigo-50/70', 'dark:bg-indigo-950/40', 'text-indigo-600', 'dark:text-indigo-400');
+          }
+        });
+      }
+
+      // Keyboard Shortcuts (Ctrl+K, Cmd+K, /, Esc, T)
+      document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+          e.preventDefault();
+          if (searchModal && !searchModal.classList.contains('hidden')) {
+            closeSearchModal();
+          } else {
+            openSearchModal();
+          }
+        } else if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+          openSearchModal();
+        } else if (e.key === 'Escape') {
+          closeSearchModal();
+          closeMobileSidebar();
+        }
+      });
+
+      // Close modal when clicking outside dialog content
+      if (searchModal) {
+        searchModal.addEventListener('click', (e) => {
+          if (e.target === searchModal) {
+            closeSearchModal();
+          }
+        });
+      }
+
+      // 4. Mobile Sidebar Drawer Logic
+      const sidebar = document.getElementById('docs-sidebar');
+      const sidebarBtn = document.getElementById('docs-mobile-sidebar-btn');
+      const sidebarClose = document.getElementById('docs-mobile-sidebar-close');
+      const backdrop = document.getElementById('docs-sidebar-backdrop');
+
+      function openMobileSidebar() {
+        if (sidebar && backdrop) {
+          sidebar.classList.remove('-translate-x-full');
+          backdrop.classList.remove('hidden');
+        }
+      }
+
+      function closeMobileSidebar() {
+        if (sidebar && backdrop) {
+          sidebar.classList.add('-translate-x-full');
+          backdrop.classList.add('hidden');
+        }
+      }
+
+      sidebarBtn?.addEventListener('click', openMobileSidebar);
+      sidebarClose?.addEventListener('click', closeMobileSidebar);
+      backdrop?.addEventListener('click', closeMobileSidebar);
+
+      // 5. Scrollspy for Table of Contents
+      (function() {
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const headings = [];
+
+        tocLinks.forEach(link => {
+          const id = link.getAttribute('data-toc-id');
+          const el = document.getElementById(id);
+          if (el) {
+            headings.push({ el, link });
+          }
+        });
+
+        function updateScrollspy() {
+          if (headings.length === 0) return;
+          const scrollPos = window.scrollY + 120;
+
+          let current = headings[0];
+          for (let i = 0; i < headings.length; i++) {
+            if (headings[i].el.offsetTop <= scrollPos) {
+              current = headings[i];
+            }
+          }
+
+          tocLinks.forEach(link => {
+            link.classList.remove('text-indigo-600', 'dark:text-indigo-400', 'border-indigo-600', 'dark:border-indigo-400', 'font-bold');
+            link.classList.add('border-transparent');
+          });
+
+          if (current) {
+            current.link.classList.add('text-indigo-600', 'dark:text-indigo-400', 'border-indigo-600', 'dark:border-indigo-400', 'font-bold');
+            current.link.classList.remove('border-transparent');
+          }
+        }
+
+        window.addEventListener('scroll', updateScrollspy, { passive: true });
+        updateScrollspy();
+      })();
+    </script>
+  </body>
+</html>

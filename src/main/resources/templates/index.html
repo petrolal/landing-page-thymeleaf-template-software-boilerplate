@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" class="dark" xmlns:th="http://www.thymeleaf.org">
   <head th:replace="~{fragments/layout :: common-header(${landing.site.title})}"></head>
-  <body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen transition-colors antialiased selection:bg-indigo-500 selection:text-white">
+  <body class="bg-slate-900 text-slate-100 min-h-screen antialiased selection:bg-indigo-500 selection:text-white">
     
     <!-- 1. Navigation Bar -->
     <th:block th:replace="~{fragments/navbar :: navbar}"></th:block>
@@ -16,10 +16,10 @@
       <!-- 4. Features Bento Grid -->
       <th:block th:replace="~{fragments/features :: features}"></th:block>
 
-      <!-- 5. Interactive Pricing Table -->
+      <!-- 5. Community Sponsor / Buy Me a Coffee Section -->
       <th:block th:replace="~{fragments/pricing :: pricing}"></th:block>
 
-      <!-- 6. Customer Reviews & Testimonials -->
+      <!-- 6. Community Reviews & Testimonials -->
       <th:block th:replace="~{fragments/testimonials :: testimonials}"></th:block>
 
       <!-- 7. Accessible FAQ Accordion -->
@@ -28,7 +28,7 @@
       <!-- 8. Conversion Call-To-Action Banner -->
       <th:block th:replace="~{fragments/cta :: cta}"></th:block>
 
-      <!-- 9. Full Contact & Inquiry Form -->
+      <!-- 9. Full Contact & Collaboration Form -->
       <th:block th:replace="~{fragments/contact :: contact}"></th:block>
     </main>
 

@@ -38,6 +38,12 @@ junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher
 htmx = { module = "org.webjars.npm:htmx.org", version.ref = "htmxWebjar" }
 webjars-locator = { module = "org.webjars:webjars-locator-core", version.ref = "webjarsLocator" }
 
+# Markdown parser
+commonmark = { module = "org.commonmark:commonmark", version = "0.24.0" }
+commonmark-ext-gfm-tables = { module = "org.commonmark:commonmark-ext-gfm-tables", version = "0.24.0" }
+commonmark-ext-heading-anchor = { module = "org.commonmark:commonmark-ext-heading-anchor", version = "0.24.0" }
+commonmark-ext-autolink = { module = "org.commonmark:commonmark-ext-autolink", version = "0.24.0" }
+
 [bundles]
 spring-boot-starter = [
   "spring-boot-starter-thymeleaf",

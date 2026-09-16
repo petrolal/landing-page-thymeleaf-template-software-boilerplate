@@ -6,81 +6,81 @@
       <!-- Section Header -->
       <div class="text-center mb-16 sm:mb-20">
         <h2 class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 mb-3">
-          Got Questions?
+          Open Source FAQ
         </h2>
         <h3 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
           Frequently Asked Questions
         </h3>
         <p class="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300">
-          Everything you need to know about the template and tech stack.
+          Everything you need to know about licensing, contributing, documentation, and sponsoring.
         </p>
       </div>
 
       <!-- FAQ Accordion using HTML5 details/summary -->
       <div class="space-y-4">
         
-        <!-- Question 1 -->
+        <!-- Question 1: License -->
         <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
-            <span>What makes this template different from standard Spring Boot starters?</span>
+            <span>Is this template truly 100% free and open source?</span>
             <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
               ↓
             </span>
           </summary>
           <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-            Most Spring Boot setups require configuring frontend build tooling from scratch or linking complex SPA frameworks. This template combines <strong>HTMX</strong> and <strong>Tailwind CSS v4</strong> in a single zero-Node Gradle build, pre-configured with JBang one-shot generation, SEO metadata, and full CI/CD deployment pipelines.
+            Yes! AuraLaunch is 100% free and open source distributed under the <strong>GNU General Public License v3.0 (GPL-3.0)</strong>. You have the complete freedom to run, study, share, and modify the software.
           </p>
         </details>
 
-        <!-- Question 2 -->
+        <!-- Question 2: Documentation -->
         <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
-            <span>Do I need Node.js or npm installed to modify styles?</span>
+            <span>How do I add or customize documentation pages?</span>
             <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
               ↓
             </span>
           </summary>
           <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-            No! Gradle automatically downloads the official standalone Tailwind CLI executable for your operating system. Running <code>./gradlew build</code> or <code>./gradlew tailwindWatch</code> compiles styles with zero JavaScript runtime dependencies.
+            Simply add standard Markdown (<code>.md</code>) files into <code>src/main/resources/docs/</code>. The built-in documentation engine automatically parses YAML frontmatter, constructs the sidebar category tree, generates table of contents headings, and updates the <kbd>Ctrl</kbd> + <kbd>K</kbd> search index. Visit <a th:href="@{/docs}" class="text-indigo-600 dark:text-indigo-400 font-semibold underline">/docs</a> for complete details.
           </p>
         </details>
 
-        <!-- Question 3 -->
+        <!-- Question 3: Buy Me a Coffee -->
         <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
-            <span>How does the JBang generator work?</span>
+            <span>How does Buy Me a Coffee support the project?</span>
             <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
               ↓
             </span>
           </summary>
           <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-            Running <code>jbang init@petrolal/landing-page-thymeleaf-template-software-boilerplate my-project</code> triggers the included <code>init.kt</code> script. It downloads the template archive, refactors Kotlin packages recursively to your target package name, updates Gradle settings, and deletes generator artifacts so your new repository starts clean.
+            All contributions via <a th:href="${landing.sponsor.buyMeACoffee}" target="_blank" class="text-amber-600 dark:text-amber-400 font-semibold underline">Buy Me a Coffee</a> directly fund open-source development time, continuous dependency updates (Spring Boot, Kotlin, Tailwind), test server hosting, and community support. Supporters are acknowledged on GitHub and the project README!
           </p>
         </details>
 
-        <!-- Question 4 -->
+        <!-- Question 4: Zero Node Tailwind -->
         <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
-            <span>How is form spam prevented without CAPTCHA?</span>
+            <span>Why is there no Node.js or npm required?</span>
             <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
               ↓
             </span>
           </summary>
           <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-            The forms include an invisible honeypot field. Automated spam bots automatically fill every input field they encounter. The backend detects this and silently drops the submission without requiring human visitors to solve frustrating puzzles.
+            We use the standalone Tailwind CSS v4 CLI binary. Gradle downloads the native binary for your architecture into <code>.bin/</code> and executes it during builds. You get instant hot-reloading (<code>./gradlew tailwindWatch</code>) without managing <code>package.json</code> or bloated <code>node_modules</code> directories.
           </p>
         </details>
 
-        <!-- Question 5 -->
+        <!-- Question 5: Contributing -->
         <details class="group rounded-2xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm transition-all open:ring-2 open:ring-indigo-500/20">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 dark:text-white text-base sm:text-lg list-none select-none">
-            <span>How do I enable the PostgreSQL database?</span>
+            <span>How can I contribute to the project?</span>
             <span class="ml-4 flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 flex items-center justify-center group-open:rotate-180 transition-transform">
               ↓
             </span>
           </summary>
           <p class="mt-4 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-            PostgreSQL and Flyway dependencies are already in <code>build.gradle.kts</code> and <code>application.yaml</code>. Simply uncomment them and run <code>docker compose up -d postgres</code> to begin persisting leads and data.
+            Contributions are warmly welcomed! You can open issues for bug reports or feature suggestions on <a th:href="${landing.social.github}" target="_blank" class="text-indigo-600 dark:text-indigo-400 font-semibold underline">GitHub</a>, submit Pull Requests, or reach out via our contact form below for architecture discussions.
           </p>
         </details>
 

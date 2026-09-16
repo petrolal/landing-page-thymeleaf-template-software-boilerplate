@@ -28,7 +28,11 @@ class LandingPageThymeleafTemplateSoftwareBoilerplateApplicationTests {
             .andExpect(status().isOk)
             .andExpect(content().string(containsString("AuraLaunch")))
             .andExpect(content().string(containsString("Features")))
-            .andExpect(content().string(containsString("Pricing")))
+            .andExpect(content().string(containsString("Documentation")))
+            .andExpect(content().string(containsString("Buy Me a Coffee")))
+            .andExpect(content().string(containsString("buymeacoffee.com/petrolal")))
+            .andExpect(content().string(containsString("title=\"LinkedIn\"")))
+            .andExpect(content().string(containsString("title=\"Medium\"")))
     }
 
     @Test
@@ -79,5 +83,47 @@ class LandingPageThymeleafTemplateSoftwareBoilerplateApplicationTests {
                     .param("message", "Hello from automated test!"),
             ).andExpect(status().isOk)
             .andExpect(content().string(containsString("Thank you for reaching out")))
+    }
+
+    @Test
+    fun `docs index should redirect to first doc page`() {
+        mockMvc
+            .perform(get("/docs"))
+            .andExpect(status().is3xxRedirection)
+    }
+
+    @Test
+    fun `doc page overview should render successfully`() {
+        mockMvc
+            .perform(get("/docs/overview"))
+            .andExpect(status().isOk)
+            .andExpect(content().string(containsString("AuraLaunch Documentation")))
+            .andExpect(content().string(containsString("Getting Started")))
+            .andExpect(content().string(containsString("On this page")))
+            .andExpect(content().string(containsString("search-modal")))
+    }
+
+    @Test
+    fun `doc page keymaps should render cheatsheet shortcuts`() {
+        mockMvc
+            .perform(get("/docs/keymaps"))
+            .andExpect(status().isOk)
+            .andExpect(content().string(containsString("Keymaps &amp; Cheatsheet")))
+            .andExpect(content().string(containsString("Ctrl")))
+    }
+
+    @Test
+    fun `doc search api should return matching results`() {
+        mockMvc
+            .perform(get("/docs/api/search").param("q", "installation"))
+            .andExpect(status().isOk)
+            .andExpect(content().string(containsString("Installation")))
+    }
+
+    @Test
+    fun `doc page should return 404 for unknown slug`() {
+        mockMvc
+            .perform(get("/docs/non-existent-slug-xyz"))
+            .andExpect(status().isNotFound)
     }
 }

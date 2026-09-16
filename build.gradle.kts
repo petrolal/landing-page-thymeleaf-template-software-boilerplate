@@ -42,6 +42,12 @@ dependencies {
     // Frontend
     implementation(libs.htmx)
     implementation(libs.webjars.locator)
+
+    // Markdown for Documentation
+    implementation(libs.commonmark)
+    implementation(libs.commonmark.ext.gfm.tables)
+    implementation(libs.commonmark.ext.heading.anchor)
+    implementation(libs.commonmark.ext.autolink)
 }
 
 kotlin {
